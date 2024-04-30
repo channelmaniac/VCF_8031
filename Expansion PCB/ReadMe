@@ -1,0 +1,15 @@
+This is the optional RAM/ROM card for the 8031 Computer. It contains 2 EPROMs and one SRAM chip and can be used to expand the computer however you want, but it's designed purpose was to run CamelForth 1.x for the 8051 CPU.
+
+The ROMs and RAM can have their address changed by using jumpers next to them. Be sure to not place the same jumper on the different chips. The RAM sits in both ROM and RAM address space by design as that is required by CamelForth.
+
+As designed, the left ROM sits at 2000H and contains code to extend the BASIC-52 command set by adding the command CAMEL (case insensitive) to launch CamelForth. The center ROM sits at A000H and contains CamelForth 1.6. Change the .org statement and recompile to change addresses. Source code is available online at http://www.camelforth.com/page.php?4. The RAM sits at E000H as required by CamelForth. That address range can be changed in the source code and recompiled, but the RAM must still sit in both the ROM and RAM address space. This can be accomplished by ANDing the /PSEN and /RD signals to the RAM chip.
+
+The BASIC-52 documentation clearly spells out how to add new commands and remap / change names for existing commands. One caveat is that there cannot be any collisions in naming. This is why "camel" starts CamelForth and not "forth" as that would conflict with BASIC's FOR statement. See ExtBASIC.ASM to see how this was done for this expansion PCB. 
+
+============
+
+Avery Labels were used to cover and protect the EPROMs. Those files are provided to make printing labels easier. The .obj files are .hex files to program ROMs with. Be careful that your programmer loads them properly into base buffer addresses and not in upper buffer memory where they were compiled to sit. In my MaxLoader software for the TopMax programmer, I had to copy buffer from 2000-3FFF to 0 to get the ExtBASIC code down to 0 to program into an EPROM at the base address for it. The .bin file provide will be easier to use in programming. The .obj file for CamelForth will need to be converted to .bin if your programmer does not handle .hex files. There are online converters for this or older utilities that can be downloaded. These older utilities will not run under Windows, but will run under DOSBox in current versions of Windows.
+
+============
+
+Gerbers and schematics for this expansion will be uploaded shortly after VCF Southwest 2024 in mid-June concludes.
