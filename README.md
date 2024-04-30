@@ -24,9 +24,11 @@ The computer runs BASIC-52 version 1.2a which was modified by Dan Karmann to run
 ---------
 
 Computer ROM Memory Map:
+
 0000-1FFFh - BASIC52 1.2a
 
 Computer RAM Memory Map:
+
 0000-7FFFh - RAM
 
 ---------
@@ -36,12 +38,17 @@ Add-on CamelForth 1.6 module: Available at VCF Southwest 2024 (June 14-16th, 202
 CamelForth is distributed under the GNU General Public License and can be found at: http://www.camelforth.com/page.php?4
 
 Module ROM Memory Map:
+
 2000-3FFFh - BASIC-52 Extensions to add "camel" key word to start CamelForth
+
 A000-BFFFh - CamelForth 1.6
 
 Computer Shared RAM Memory Map (Sits in both RAM and ROM space. This is required by the CamelForth software. It does not use the RAM from 0000-7FFFh.)
+
 E000-EFFFh - Code RAM
+
 F000-FDFFh - Data RAM
+
 FE00-FFFFh - UPHI RAM
 
 ---------
