@@ -2,9 +2,15 @@ This is the optional RAM/ROM card for the 8031 Computer. It contains 2 EPROMs an
 
 The ROMs and RAM can have their address changed by using jumpers next to them. Be sure to not place the same jumper on the different chips. The RAM sits in both ROM and RAM address space by design as that is required by CamelForth.
 
+2000H - 3FFFH  ExtBASIC (Extend BASIC commands)
+
+A000H - BFFFH  CamelForth 1.6
+
+E000H - FFFFH  SRAM sitting in both RAM and ROM address space
+
 As designed, the left ROM sits at 2000H and contains code to extend the BASIC-52 command set by adding the command CAMEL (case insensitive) to launch CamelForth. The center ROM sits at A000H and contains CamelForth 1.6. Change the .org statement and recompile to change addresses. Source code is available online at http://www.camelforth.com/page.php?4. The RAM sits at E000H as required by CamelForth. That address range can be changed in the source code and recompiled, but the RAM must still sit in both the ROM and RAM address space. This can be accomplished by ANDing the /PSEN and /RD signals to the RAM chip.
 
-The BASIC-52 documentation clearly spells out how to add new commands and remap / change names for existing commands. One caveat is that there cannot be any collisions in naming. This is why "camel" starts CamelForth and not "forth" as that would conflict with BASIC's FOR statement. See ExtBASIC.ASM to see how this was done for this expansion PCB. 
+The BASIC-52 documentation clearly spells out how to add new commands and remap / change names for existing commands. One caveat is that there cannot be any collisions in naming. This is why "camel" starts CamelForth and not "forth" as that would conflict with BASIC's FOR statement. See ExtBASIC.ASM and Intel's BASIC-52 documentation to see how this was done for this expansion PCB. 
 
 ============
 
