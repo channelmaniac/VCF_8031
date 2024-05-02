@@ -4,11 +4,17 @@ Welcome to the VCFSW 8031 Computer Build!
 This PCB was designed for the show with a few goals in mind: 
 
 •	Use a vintage CPU and easy to find parts
+
 •	Reusable parts
+
 •	Easy to build: No surface mount parts
+
 •	Flexible power requirements
+
 •	Easy to program
+
 •	Easy to interface
+
 •	Expandable
 
 Most of these requirements were easy to meet. The PCB uses a simple 8 to 12v DC, 1A wall wart with a positive center barrel connector, but there was one surface mount connector as an option for those who wanted an alternate power jack to use +5v DC regulated. Using BASIC made it easier to accommodate novice programmers instead of requiring knowledge of assembly or machine code.
